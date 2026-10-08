@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grand Horology Vault | Luxury Indian Timepieces</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vault: {
+                            50: '#FAF8F5',
+                            100: '#F4EFE6',
+                            200: '#E6DCB8',
+                            300: '#D4AF37', /* Gold Accent */
+                            400: '#C5A880', /* Refined Gold */
+                            500: '#9A7B38',
+                            800: '#1A1816', /* Deep Obsidian */
+                            900: '#0F0E0D'  /* Pure Black Accent */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Cormorant Garamond', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        cormorant: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Luxury Styling */
+        body {
+            background-color: #FAF8F5;
+            color: #1A1816;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A880 50%, #8A6D3B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A880 100%);
+        }
+        .border-gold-subtle {
+            border-color: rgba(197, 168, 128, 0.3);
+        }
+        .gold-button {
+            background: linear-gradient(135deg, #1A1816 0%, #2D2926 100%);
+            color: #D4AF37;
+            border: 1px solid #C5A880;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gold-button:hover {
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A880 100%);
+            color: #0F0E0D;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF8F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A880;
+            border-radius: 4px;
+        }
+        
+        /* Printable Invoice Styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-invoice-modal, #printable-invoice-modal * {
+                visibility: visible;
+            }
+            #printable-invoice-modal {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                background: white !important;
+                color: black !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-vault-900 text-vault-200 text-xs py-2 px-4 text-center tracking-widest uppercase border-b border-vault-800 flex justify-between items-center">
+        <div class="hidden sm:block text-left w-1/3 text-vault-400">
+            <i class="fa-solid fa-shield-halved mr-1 text-xs"></i> 100% Genuine Timepieces Guaranteed
+        </div>
+        <div class="w-full sm:w-1/3 text-center font-medium">
+            Complimentary Insured Express Delivery Across India
+        </div>
+        <div class="hidden sm:block text-right w-1/3 text-vault-400">
+            <span class="bg-amber-900/60 text-amber-200 text-[10px] px-2 py-0.5 rounded border border-amber-500/30 font-sans tracking-normal">Demo Store</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-vault-50/95 backdrop-blur-md border-b border-vault-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center lg:hidden">
+                    <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="text-vault-800 hover:text-vault-400 p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Brand Typography Header -->
+                <div class="flex-1 lg:flex-none text-center lg:text-left">
+                    <a href="#" onclick="resetCatalogView(); return false;" class="inline-block group">
+                        <h1 class="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-vault-900 uppercase">
+                            <span class="font-gold">THE GRAND HOROLOGY</span>
+                        </h1>
+                        <p class="text-[9px] sm:text-[10px] tracking-[0.35em] text-vault-500 uppercase font-medium text-center -mt-1 group-hover:text-vault-800 transition-colors">
+                            VAULT • INDIA
+                        </p>
+                    </a>
+                </div>
+
+                <!-- Desktop Category Navigation -->
+                <nav class="hidden lg:flex space-x-8 text-sm font-medium tracking-wider uppercase text-vault-800">
+                    <button onclick="filterCategory('All')" class="nav-cat-btn hover:text-vault-400 py-2 border-b-2 border-transparent transition-all" data-category="All">All Vault</button>
+                    <button onclick="filterCategory('Couples')" class="nav-cat-btn hover:text-vault-400 py-2 border-b-2 border-transparent transition-all" data-category="Couples">Couples</button>
+                    <button onclick="filterCategory('Men')" class="nav-cat-btn hover:text-vault-400 py-2 border-b-2 border-transparent transition-all" data-category="Men">Men</button>
+                    <button onclick="filterCategory('Women')" class="nav-cat-btn hover:text-vault-400 py-2 border-b-2 border-transparent transition-all" data-category="Women">Women</button>
+                    <button onclick="filterCategory('Children')" class="nav-cat-btn hover:text-vault-400 py-2 border-b-2 border-transparent transition-all" data-category="Children">Children</button>
+                    <button onclick="filterCategory('Masters')" class="nav-cat-btn hover:text-vault-400 py-2 border-b-2 border-transparent transition-all text-amber-700 font-semibold" data-category="Masters">
+                        <i class="fa-solid fa-crown text-xs mr-1 text-amber-500"></i>Masters
+                    </button>
+                </nav>
+
+                <!-- Search and Header Icons -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search Input Box -->
+                    <div class="relative hidden sm:block w-48 md:w-64">
+                        <input type="text" id="search-input" placeholder="Search Titan, Seiko, Casio..." 
+                            class="w-full bg-white/80 border border-vault-200 rounded-full py-1.5 pl-9 pr-4 text-xs focus:outline-none focus:border-vault-400 transition-all text-vault-800 placeholder-vault-400">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-vault-400"></i>
+                        <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-3 top-2.5 text-xs text-vault-400 hover:text-vault-800">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <!-- User Account Access Button -->
+                    <button onclick="toggleAuthModal()" class="text-vault-800 hover:text-vault-400 p-2 relative group" title="Account & Order History">
+                        <i class="fa-regular fa-user text-lg"></i>
+                        <span id="user-status-dot" class="hidden absolute top-1 right-1 w-2 h-2 bg-emerald-500 rounded-full"></span>
+                    </button>
+
+                    <!-- Wishlist Toggle Button -->
+                    <button onclick="toggleWishlistDrawer()" class="text-vault-800 hover:text-vault-400 p-2 relative" title="Wishlist">
+                        <i class="fa-regular fa-heart text-lg"></i>
+                        <span id="wishlist-count-badge" class="absolute -top-1 -right-1 bg-vault-900 text-vault-300 text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                    </button>
+
+                    <!-- Shopping Cart Icon with Live Count -->
+                    <button onclick="toggleCartDrawer()" class="gold-button px-3 py-1.5 rounded-full text-xs font-semibold flex items-center space-x-2" title="Shopping Cart">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span id="cart-count-badge" class="bg-vault-300 text-vault-900 text-[11px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Search Bar -->
+        <div class="sm:hidden px-4 pb-3">
+            <div class="relative w-full">
+                <input type="text" id="mobile-search-input" placeholder="Search watches, brands..." 
+                    class="w-full bg-white border border-vault-200 rounded-full py-1.5 pl-9 pr-4 text-xs focus:outline-none focus:border-vault-400 text-vault-800">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-vault-400"></i>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-vault-50 border-b border-vault-200 px-4 pt-2 pb-4 space-y-2">
+            <button onclick="filterCategory('All'); toggleMobileMenu()" class="block w-full text-left py-2 text-sm font-medium uppercase text-vault-800 hover:text-vault-400 border-b border-vault-100">All Vault Watches</button>
+            <button onclick="filterCategory('Couples'); toggleMobileMenu()" class="block w-full text-left py-2 text-sm font-medium uppercase text-vault-800 hover:text-vault-400 border-b border-vault-100">Couples Collection</button>
+            <button onclick="filterCategory('Men'); toggleMobileMenu()" class="block w-full text-left py-2 text-sm font-medium uppercase text-vault-800 hover:text-vault-400 border-b border-vault-100">Men's Watches</button>
+            <button onclick="filterCategory('Women'); toggleMobileMenu()" class="block w-full text-left py-2 text-sm font-medium uppercase text-vault-800 hover:text-vault-400 border-b border-vault-100">Women's Watches</button>
+            <button onclick="filterCategory('Children'); toggleMobileMenu()" class="block w-full text-left py-2 text-sm font-medium uppercase text-vault-800 hover:text-vault-400 border-b border-vault-100">Children's Collection</button>
+            <button onclick="filterCategory('Masters'); toggleMobileMenu()" class="block w-full text-left py-2 text-sm font-semibold uppercase text-amber-700 hover:text-vault-400">Masters Horology</button>
+        </div>
+    </header>
+
+    <!-- Top Advertisement Carousel Slider -->
+    <section aria-label="Featured Collections Carousel" class="relative bg-vault-900 text-white overflow-hidden shadow-2xl">
+        <div id="carousel-slides-container" class="relative w-full h-[360px] sm:h-[420px] md:h-[480px]">
+            
+            <!-- Slide 1: Masters Horology -->
+            <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out flex items-center" data-slide="0">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop" alt="Masters Collector Timepiece" class="absolute inset-0 w-full h-full object-cover object-center opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-r from-vault-900 via-vault-900/80 to-transparent"></div>
+                <div class="relative max-w-7xl mx-auto px-6 lg:px-12 w-full">
+                    <span class="inline-block text-vault-300 text-xs font-semibold tracking-[0.3em] uppercase mb-2 border-b border-vault-300/40 pb-1">Grand Horology Exclusive</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-wide text-white max-w-2xl leading-tight">
+                        The Masters Collection
+                    </h2>
+                    <p class="mt-3 text-sm sm:text-base text-vault-200 max-w-lg font-light leading-relaxed">
+                        Precision engineering, mechanical prowess, and timeless horological artistry curated for serious collectors in India.
+                    </p>
+                    <div class="mt-6">
+                        <button onclick="filterCategory('Masters')" class="gold-button px-6 py-3 text-xs tracking-widest font-semibold uppercase rounded">
+                            Explore Masters Vault <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Couples Bandhan -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out flex items-center" data-slide="1">
+                <img src="https://images.unsplash.com/photo-1539874754764-5a96559165b0?q=80&w=1600&auto=format&fit=crop" alt="Luxury Couple Watches Set" class="absolute inset-0 w-full h-full object-cover object-center opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-r from-vault-900 via-vault-900/80 to-transparent"></div>
+                <div class="relative max-w-7xl mx-auto px-6 lg:px-12 w-full">
+                    <span class="inline-block text-vault-300 text-xs font-semibold tracking-[0.3em] uppercase mb-2 border-b border-vault-300/40 pb-1">Perfect Harmony</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-wide text-white max-w-2xl leading-tight">
+                        Couple Sets & Pairs
+                    </h2>
+                    <p class="mt-3 text-sm sm:text-base text-vault-200 max-w-lg font-light leading-relaxed">
+                        Celebrate unity and milestones with curated watch pairs from Titan Bandhan, Fossil, and Casio.
+                    </p>
+                    <div class="mt-6">
+                        <button onclick="filterCategory('Couples')" class="gold-button px-6 py-3 text-xs tracking-widest font-semibold uppercase rounded">
+                            Discover Pair Watches <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Titan & Seiko Heritage -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out flex items-center" data-slide="2">
+                <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1600&auto=format&fit=crop" alt="Precision Automatic Watches" class="absolute inset-0 w-full h-full object-cover object-center opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-r from-vault-900 via-vault-900/80 to-transparent"></div>
+                <div class="relative max-w-7xl mx-auto px-6 lg:px-12 w-full">
+                    <span class="inline-block text-vault-300 text-xs font-semibold tracking-[0.3em] uppercase mb-2 border-b border-vault-300/40 pb-1">Automated Excellence</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-wide text-white max-w-2xl leading-tight">
+                        Craftsmanship Defined
+                    </h2>
+                    <p class="mt-3 text-sm sm:text-base text-vault-200 max-w-lg font-light leading-relaxed">
+                        Featuring iconic automatics and chronographs from Seiko Presage, Citizen Eco-Drive, and Titan Edge.
+                    </p>
+                    <div class="mt-6">
+                        <button onclick="filterCategory('Men')" class="gold-button px-6 py-3 text-xs tracking-widest font-semibold uppercase rounded">
+                            Shop Gentlemen's Vault <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Carousel Navigation Controls -->
+        <button id="prev-slide-btn" aria-label="Previous Slide" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-vault-900/60 border border-vault-400/50 text-white hover:bg-vault-300 hover:text-vault-900 transition-all flex items-center justify-center focus:outline-none">
+            <i class="fa-solid fa-chevron-left text-sm"></i>
+        </button>
+        <button id="next-slide-btn" aria-label="Next Slide" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-vault-900/60 border border-vault-400/50 text-white hover:bg-vault-300 hover:text-vault-900 transition-all flex items-center justify-center focus:outline-none">
+            <i class="fa-solid fa-chevron-right text-sm"></i>
+        </button>
+
+        <!-- Carousel Indicators Dots -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+            <button class="carousel-dot w-8 h-1.5 rounded-full bg-vault-300 transition-all" data-slide-to="0" aria-label="Slide 1"></button>
+            <button class="carousel-dot w-2.5 h-1.5 rounded-full bg-white/40 transition-all" data-slide-to="1" aria-label="Slide 2"></button>
+            <button class="carousel-dot w-2.5 h-1.5 rounded-full bg-white/40 transition-all" data-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+    </section>
+
+    <!-- Brand Value Pillars Section -->
+    <section class="border-b border-vault-200 bg-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="flex flex-col items-center">
+                <i class="fa-solid fa-award text-vault-400 text-2xl mb-2"></i>
+                <h3 class="text-xs font-semibold tracking-wider uppercase text-vault-900">100% Genuine Brands</h3>
+                <p class="text-[11px] text-vault-500 mt-0.5">Titan, Seiko, Casio, Citizen & More</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <i class="fa-solid fa-truck-fast text-vault-400 text-2xl mb-2"></i>
+                <h3 class="text-xs font-semibold tracking-wider uppercase text-vault-900">Insured Delivery</h3>
+                <p class="text-[11px] text-vault-500 mt-0.5">Pan-India Express Shipping</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <i class="fa-solid fa-shield-cat text-vault-400 text-2xl mb-2"></i>
+                <h3 class="text-xs font-semibold tracking-wider uppercase text-vault-900">Brand Warranty</h3>
+                <p class="text-[11px] text-vault-500 mt-0.5">2-Year Official Manufacturer Card</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <i class="fa-solid fa-headset text-vault-400 text-2xl mb-2"></i>
+                <h3 class="text-xs font-semibold tracking-wider uppercase text-vault-900">Vault Assistance</h3>
+                <p class="text-[11px] text-vault-500 mt-0.5">White-Glove Customer Support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area: Catalog & Filters -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+        
+        <!-- Category Banner & Catalog Controls Bar -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-vault-200">
+            <div>
+                <span class="text-xs font-semibold text-vault-400 uppercase tracking-widest">Curated Collection</span>
+                <h2 id="current-category-title" class="font-serif text-3xl md:text-4xl font-bold text-vault-900 mt-1">
+                    All Vault Timepieces
+                </h2>
+                <p id="category-description" class="text-xs text-vault-500 mt-1 max-w-xl">
+                    Showing 25 authentic timepieces from renowned Indian and international horology houses.
+                </p>
+            </div>
+
+            <!-- Interactive Filters and Sorting Bar -->
+            <div class="mt-4 md:mt-0 flex flex-wrap items-center gap-3">
+                
+                <!-- Brand Filter Dropdown -->
+                <div class="relative">
+                    <select id="brand-filter" onchange="applyFilters()" class="bg-white border border-vault-200 text-vault-800 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-vault-400 cursor-pointer shadow-sm">
+                        <option value="All">All Brands</option>
+                        <option value="Titan">Titan</option>
+                        <option value="Casio">Casio</option>
+                        <option value="Timex">Timex</option>
+                        <option value="Seiko">Seiko</option>
+                        <option value="Citizen">Citizen</option>
+                        <option value="Fossil">Fossil</option>
+                        <option value="Tissot">Tissot</option>
+                        <option value="Longines">Longines</option>
+                    </select>
+                </div>
+
+                <!-- Price Range Filter Dropdown -->
+                <div class="relative">
+                    <select id="price-filter" onchange="applyFilters()" class="bg-white border border-vault-200 text-vault-800 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-vault-400 cursor-pointer shadow-sm">
+                        <option value="All">All Prices</option>
+                        <option value="under5k">Under ₹5,000</option>
+                        <option value="5k-20k">₹5,000 - ₹20,000</option>
+                        <option value="20k-50k">₹20,000 - ₹50,000</option>
+                        <option value="above50k">Above ₹50,000</option>
+                    </select>
+                </div>
+
+                <!-- Sort By Dropdown -->
+                <div class="relative">
+                    <select id="sort-select" onchange="applyFilters()" class="bg-white border border-vault-200 text-vault-800 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-vault-400 cursor-pointer shadow-sm">
+                        <option value="featured">Sort: Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name-asc">Name: A to Z</option>
+                    </select>
+                </div>
+
+                <button onclick="resetFilters()" class="text-xs text-vault-500 hover:text-vault-900 underline ml-1">Reset</button>
+            </div>
+        </div>
+
+        <!-- Demonstration Notice Banner -->
+        <div class="mb-6 bg-amber-50/80 border border-amber-200/80 rounded-lg p-3 text-xs text-amber-900 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-circle-info text-amber-600"></i>
+                <span>All prices, stock levels, and store details are simulated for demonstration purposes. Format: <strong>Indian Rupees (INR)</strong>.</span>
+            </div>
+            <span class="text-[10px] text-amber-700 font-mono hidden md:inline">25 Items Pre-loaded</span>
+        </div>
+
+        <!-- Product Grid Container -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+            <!-- Dynamic JavaScript Product Cards rendered here -->
+        </div>
+
+        <!-- Empty Results State -->
+        <div id="empty-state" class="hidden text-center py-16">
+            <i class="fa-regular fa-clock text-5xl text-vault-300 mb-4"></i>
+            <h3 class="font-serif text-2xl font-semibold text-vault-900">No Timepieces Found</h3>
+            <p class="text-xs text-vault-500 mt-2 max-w-sm mx-auto">We couldn't find any watches matching your selected filters or search terms. Try clearing search or selecting another category.</p>
+            <button onclick="resetFilters()" class="mt-4 gold-button px-5 py-2 rounded text-xs uppercase tracking-wider font-semibold">Clear All Filters</button>
+        </div>
+
+    </main>
+
+    <!-- Shopping Cart Slide-Over Drawer -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 bg-vault-900/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div id="cart-drawer" class="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
+            
+            <!-- Drawer Header -->
+            <div class="p-4 sm:p-6 bg-vault-900 text-white flex items-center justify-between border-b border-vault-800">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-bag-shopping text-vault-300 text-lg"></i>
+                    <h3 class="font-serif text-xl font-bold tracking-wide">Your Vault Cart</h3>
+                </div>
+                <button onclick="toggleCartDrawer()" class="text-vault-400 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Drawer Items List -->
+            <div id="cart-items-container" class="flex-grow overflow-y-auto p-4 sm:p-6 space-y-4">
+                <!-- Cart items dynamically rendered -->
+            </div>
+
+            <!-- Drawer Footer / Total Summary -->
+            <div class="p-4 sm:p-6 bg-vault-50 border-t border-vault-200">
+                
+                <!-- Coupon Code Box -->
+                <div class="mb-4 flex space-x-2">
+                    <input type="text" id="coupon-code-input" placeholder="Promo Code (e.g. VAULT10)" class="flex-grow bg-white border border-vault-200 rounded px-3 py-1.5 text-xs text-vault-800 focus:outline-none focus:border-vault-400 uppercase">
+                    <button onclick="applyCouponCode()" class="bg-vault-800 text-vault-300 hover:bg-vault-900 text-xs px-3 py-1.5 rounded font-semibold uppercase">Apply</button>
+                </div>
+                <p id="coupon-message" class="text-[11px] mb-3 hidden"></p>
+
+                <div class="space-y-1.5 text-xs text-vault-700 border-b border-vault-200 pb-3 mb-3">
+                    <div class="flex justify-between">
+                        <span>Subtotal (Inclusive of GST)</span>
+                        <span id="cart-subtotal-text" class="font-semibold text-vault-900">₹0.00</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Estimated Shipping (India)</span>
+                        <span id="cart-shipping-text" class="text-emerald-700 font-semibold">FREE</span>
+                    </div>
+                    <div id="coupon-discount-row" class="flex justify-between text-emerald-700 hidden">
+                        <span>Vault Privilege Discount (10%)</span>
+                        <span id="cart-discount-text">-₹0.00</span>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-baseline mb-4">
+                    <span class="font-serif text-lg font-bold text-vault-900">Total Payable</span>
+                    <span id="cart-total-text" class="font-serif text-xl font-bold text-vault-900">₹0.00</span>
+                </div>
+
+                <button onclick="openCheckoutModal()" class="w-full gold-button py-3 text-xs tracking-widest font-semibold uppercase rounded text-center block">
+                    Proceed To Vault Checkout <i class="fa-solid fa-lock ml-2 text-xs"></i>
+                </button>
+                <p class="text-[10px] text-vault-400 text-center mt-2">
+                    <i class="fa-solid fa-shield-halved mr-1"></i> Secure 256-Bit SSL Encrypted Checkout
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Quick View Product Modal -->
+    <div id="quickview-modal" class="fixed inset-0 bg-vault-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-vault-200 relative p-6 md:p-8">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 text-vault-400 hover:text-vault-900 text-xl z-10 w-8 h-8 rounded-full bg-vault-50 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="quickview-content" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout & Order Modal -->
+    <div id="checkout-modal" class="fixed inset-0 bg-vault-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 overflow-y-auto">
+        <div class="bg-white rounded-xl max-w-4xl w-full my-8 shadow-2xl border border-vault-200 relative overflow-hidden flex flex-col max-h-[92vh]">
+            
+            <!-- Checkout Header -->
+            <div class="bg-vault-900 text-white px-6 py-4 flex justify-between items-center border-b border-vault-800">
+                <div class="flex items-center space-x-3">
+                    <h3 class="font-serif text-xl font-bold tracking-wider text-vault-300 uppercase">THE GRAND HOROLOGY VAULT</h3>
+                    <span class="text-xs text-vault-400">| Secure Checkout</span>
+                </div>
+                <button onclick="closeCheckoutModal()" class="text-vault-400 hover:text-white text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Checkout Body -->
+            <div class="p-6 overflow-y-auto flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Left Column: Shipping & Payment Form -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- Customer Shipping Details -->
+                    <div>
+                        <h4 class="text-xs font-bold text-vault-900 uppercase tracking-widest mb-3 border-b border-vault-200 pb-1 flex justify-between items-center">
+                            <span>1. Indian Delivery Address</span>
+                            <span class="text-[10px] text-vault-500 font-normal">Standard 3-5 Day Express</span>
+                        </h4>
+                        
+                        <form id="checkout-address-form" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div class="sm:col-span-2">
+                                <label class="block text-vault-700 font-medium mb-1">Full Customer Name *</label>
+                                <input type="text" id="cust-name" required placeholder="e.g. Vikramaditya Sharma" class="w-full bg-vault-50 border border-vault-200 rounded p-2 focus:bg-white focus:outline-none focus:border-vault-400">
+                            </div>
+                            <div>
+                                <label class="block text-vault-700 font-medium mb-1">Email Address *</label>
+                                <input type="email" id="cust-email" required placeholder="name@example.com" class="w-full bg-vault-50 border border-vault-200 rounded p-2 focus:bg-white focus:outline-none focus:border-vault-400">
+                            </div>
+                            <div>
+                                <label class="block text-vault-700 font-medium mb-1">10-Digit Mobile (+91) *</label>
+                                <input type="tel" id="cust-phone" required pattern="[0-9]{10}" placeholder="9876543210" class="w-full bg-vault-50 border border-vault-200 rounded p-2 focus:bg-white focus:outline-none focus:border-vault-400">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="block text-vault-700 font-medium mb-1">Flat / Building / House No. & Street *</label>
+                                <input type="text" id="cust-address" required placeholder="e.g. 402 Horizon Towers, MG Road" class="w-full bg-vault-50 border border-vault-200 rounded p-2 focus:bg-white focus:outline-none focus:border-vault-400">
+                            </div>
+                            <div>
+                                <label class="block text-vault-700 font-medium mb-1">City / Town *</label>
+                                <input type="text" id="cust-city" required placeholder="e.g. Mumbai / Bengaluru" class="w-full bg-vault-50 border border-vault-200 rounded p-2 focus:bg-white focus:outline-none focus:border-vault-400">
+                            </div>
+                            <div>
+                                <label class="block text-vault-700 font-medium mb-1">State *</label>
+                                <select id="cust-state" required class="w-full bg-vault-50 border border-vault-200 rounded p-2 focus:bg-white focus:outline-none focus:border-vault-400">
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Delhi">Delhi NCR</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Other">Other State / UT</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-vault-700 font-medium mb-1">Indian PIN Code (6 Digits) *</label>
+                                <input type="text" id="cust-pincode" required pattern="[0-9]{6}" maxlength="6" placeholder="400001" class="w-full bg-vault-50 border border-vault-200 rounded p-2 focus:bg-white focus:outline-none focus:border-vault-400">
+                            </div>
+                            <div class="flex items-center pt-5">
+                                <label class="flex items-center space-x-2 text-vault-600 cursor-pointer">
+                                    <input type="checkbox" id="same-billing-check" checked class="rounded border-vault-300 text-vault-800">
+                                    <span>Billing address same as shipping</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Payment Options Gateway Sandbox -->
+                    <div>
+                        <h4 class="text-xs font-bold text-vault-900 uppercase tracking-widest mb-3 border-b border-vault-200 pb-1 flex items-center justify-between">
+                            <span>2. Select Payment Method</span>
+                            <span class="text-[10px] text-amber-700 font-normal">Demonstration Gateway Sandbox</span>
+                        </h4>
+
+                        <div class="space-y-2 text-xs">
+                            
+                            <!-- UPI Option -->
+                            <label class="block border border-vault-200 rounded-lg p-3 hover:border-vault-400 cursor-pointer transition-colors bg-white">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <input type="radio" name="payment-method" value="UPI" checked class="text-vault-800">
+                                        <div>
+                                            <span class="font-semibold text-vault-900 block">UPI Instant Payment (GPay / PhonePe / Paytm)</span>
+                                            <span class="text-[11px] text-vault-500">Scan QR Code or Enter VPA</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Fastest</span>
+                                </div>
+                                <div id="upi-extra-info" class="mt-3 pt-2 border-t border-vault-100 flex items-center space-x-2">
+                                    <input type="text" id="upi-id-input" placeholder="e.g. mobile@upi" class="bg-vault-50 border border-vault-200 rounded p-1.5 text-xs w-full">
+                                    <span class="text-[10px] text-vault-400 whitespace-nowrap">Sandbox QR</span>
+                                </div>
+                            </label>
+
+                            <!-- Debit / Credit Cards -->
+                            <label class="block border border-vault-200 rounded-lg p-3 hover:border-vault-400 cursor-pointer transition-colors bg-white">
+                                <div class="flex items-center space-x-3">
+                                    <input type="radio" name="payment-method" value="CARD" class="text-vault-800">
+                                    <div>
+                                        <span class="font-semibold text-vault-900 block">Credit / Debit Card (Visa, Mastercard, RuPay)</span>
+                                        <span class="text-[11px] text-vault-500">Encrypted Sandbox Transaction</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- Net Banking -->
+                            <label class="block border border-vault-200 rounded-lg p-3 hover:border-vault-400 cursor-pointer transition-colors bg-white">
+                                <div class="flex items-center space-x-3">
+                                    <input type="radio" name="payment-method" value="NETBANKING" class="text-vault-800">
+                                    <div>
+                                        <span class="font-semibold text-vault-900 block">Net Banking</span>
+                                        <span class="text-[11px] text-vault-500">HDFC, SBI, ICICI, Axis, Kotak</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- Cash on Delivery -->
+                            <label class="block border border-vault-200 rounded-lg p-3 hover:border-vault-400 cursor-pointer transition-colors bg-white">
+                                <div class="flex items-center space-x-3">
+                                    <input type="radio" name="payment-method" value="COD" class="text-vault-800">
+                                    <div>
+                                        <span class="font-semibold text-vault-900 block">Cash on Delivery (COD)</span>
+                                        <span class="text-[11px] text-vault-500">Pay cash upon delivery at your door</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Order Cost Calculator Summary -->
+                <div class="lg:col-span-5 bg-vault-50 p-5 rounded-lg border border-vault-200 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xs font-bold text-vault-900 uppercase tracking-widest mb-3 border-b border-vault-200 pb-1">
+                            Order Cost Calculation
+                        </h4>
+
+                        <!-- Checkout Item Mini List -->
+                        <div id="checkout-mini-list" class="space-y-2 mb-4 max-h-40 overflow-y-auto pr-1">
+                            <!-- Injected dynamically -->
+                        </div>
+
+                        <!-- Cost Breakdown Table -->
+                        <div class="space-y-2 text-xs border-t border-vault-200 pt-3">
+                            <div class="flex justify-between text-vault-600">
+                                <span>Subtotal</span>
+                                <span id="summary-subtotal">₹0.00</span>
+                            </div>
+                            <div class="flex justify-between text-vault-600">
+                                <span>GST (Configurable 18% Incl.)</span>
+                                <span id="summary-tax">₹0.00</span>
+                            </div>
+                            <div class="flex justify-between text-vault-600">
+                                <span>Insured Delivery</span>
+                                <span id="summary-shipping" class="text-emerald-700 font-semibold">FREE</span>
+                            </div>
+                            <div id="summary-discount-row" class="flex justify-between text-emerald-700 hidden">
+                                <span>Promo Discount</span>
+                                <span id="summary-discount">-₹0.00</span>
+                            </div>
+                            <div class="flex justify-between text-sm font-bold text-vault-900 border-t border-vault-300 pt-2 mt-2">
+                                <span>Final Payable Amount</span>
+                                <span id="summary-total" class="font-serif text-lg text-vault-900">₹0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 bg-amber-50 p-2.5 rounded border border-amber-200/60 text-[10px] text-amber-900">
+                            <i class="fa-solid fa-circle-exclamation mr-1 text-amber-600"></i>
+                            <strong>Sandbox Notice:</strong> No real payment will be processed. Clicking place order creates a verified demonstration invoice.
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <button onclick="processOrderCheckout()" class="w-full gold-button py-3 text-xs tracking-widest font-semibold uppercase rounded text-center shadow-md">
+                            Confirm & Place Order <i class="fa-solid fa-check-double ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Printable Invoice Receipt Modal -->
+    <div id="printable-invoice-modal" class="fixed inset-0 bg-vault-900/90 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 overflow-y-auto">
+        <div class="bg-white rounded-xl max-w-3xl w-full my-8 p-8 shadow-2xl border border-vault-300 text-vault-900 relative">
+            
+            <!-- Modal Close & Print Actions (Hidden on Print) -->
+            <div class="no-print flex justify-between items-center mb-6 pb-4 border-b border-vault-200">
+                <div class="flex items-center space-x-2 text-emerald-700 text-xs font-semibold">
+                    <i class="fa-solid fa-circle-check text-base"></i>
+                    <span>Order Verified & Recorded Successfully!</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button onclick="window.print()" class="gold-button px-4 py-1.5 rounded text-xs uppercase tracking-wider font-semibold">
+                        <i class="fa-solid fa-print mr-1"></i> Print Bill / PDF
+                    </button>
+                    <button onclick="closeInvoiceModal()" class="text-vault-400 hover:text-vault-900 text-xl">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Invoice Header -->
+            <div class="flex justify-between items-start border-b-2 border-vault-900 pb-6">
+                <div>
+                    <h2 class="font-serif text-2xl font-bold tracking-wider text-vault-900">THE GRAND HOROLOGY VAULT</h2>
+                    <p class="text-[10px] text-vault-500 tracking-widest uppercase">Luxury Indian Timepieces Pvt Ltd</p>
+                    <p class="text-xs text-vault-600 mt-1">104 Heritage Chambers, Fort, Mumbai, MH - 400001</p>
+                    <p class="text-xs text-vault-600">GSTIN: 27AAAAA0000A1Z5 (Demo Seller) | Support: care@grandhorologyvault.in</p>
+                </div>
+                <div class="text-right">
+                    <span class="inline-block bg-vault-900 text-vault-300 font-serif text-xs px-3 py-1 font-bold rounded uppercase tracking-wider">TAX INVOICE</span>
+                    <p class="text-xs font-mono font-bold mt-2" id="inv-number">GHV-2026-0000</p>
+                    <p class="text-xs text-vault-500" id="inv-date">Date: Oct 08, 2026</p>
+                </div>
+            </div>
+
+            <!-- Invoice Customer & Payment Status -->
+            <div class="grid grid-cols-2 gap-6 py-4 border-b border-vault-200 text-xs">
+                <div>
+                    <h5 class="font-bold text-vault-900 uppercase text-[10px] tracking-wider text-vault-500 mb-1">Billed & Shipped To:</h5>
+                    <p class="font-semibold text-vault-900" id="inv-cust-name">Customer Name</p>
+                    <p class="text-vault-600" id="inv-cust-address">Address Line</p>
+                    <p class="text-vault-600" id="inv-cust-phone">Mobile: +91 0000000000</p>
+                    <p class="text-vault-600" id="inv-cust-email">Email: customer@example.com</p>
+                </div>
+                <div class="text-right">
+                    <h5 class="font-bold text-vault-900 uppercase text-[10px] tracking-wider text-vault-500 mb-1">Payment Status:</h5>
+                    <span id="inv-pay-badge" class="inline-block px-2.5 py-1 rounded text-xs font-bold bg-emerald-100 text-emerald-800">PAID - UPI ONLINE</span>
+                    <p class="text-[11px] text-vault-500 mt-2">Place of Supply: India</p>
+                </div>
+            </div>
+
+            <!-- Invoice Line Items Table -->
+            <div class="py-4">
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead>
+                        <tr class="border-b border-vault-900 text-vault-900 uppercase text-[10px] tracking-wider">
+                            <th class="py-2">Item / Watch Description</th>
+                            <th class="py-2 text-center">Qty</th>
+                            <th class="py-2 text-right">Unit Price</th>
+                            <th class="py-2 text-right">Total (INR)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inv-items-body" class="divide-y divide-vault-100">
+                        <!-- Invoice lines rendered here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Invoice Total Summary -->
+            <div class="border-t-2 border-vault-900 pt-4 flex justify-between items-start text-xs">
+                <div class="max-w-xs text-[10px] text-vault-500">
+                    <p><strong>Declaration:</strong> This invoice is issued for demonstration purposes. All timepieces carry official 2-year warranty cards upon physical order dispatch.</p>
+                </div>
+                <div class="w-64 space-y-1 text-right">
+                    <div class="flex justify-between text-vault-600">
+                        <span>Subtotal</span>
+                        <span id="inv-subtotal">₹0.00</span>
+                    </div>
+                    <div class="flex justify-between text-vault-600">
+                        <span>GST Breakdown (18%)</span>
+                        <span id="inv-tax">₹0.00</span>
+                    </div>
+                    <div class="flex justify-between text-vault-600">
+                        <span>Shipping Charges</span>
+                        <span class="text-emerald-700 font-semibold">FREE</span>
+                    </div>
+                    <div id="inv-discount-row" class="flex justify-between text-emerald-700 hidden">
+                        <span>Discount</span>
+                        <span id="inv-discount">-₹0.00</span>
+                    </div>
+                    <div class="flex justify-between text-sm font-bold text-vault-900 border-t border-vault-300 pt-2">
+                        <span>Grand Total</span>
+                        <span id="inv-grand-total" class="font-serif text-base font-bold">₹0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoice Footer -->
+            <div class="mt-8 pt-4 border-t border-vault-200 text-center text-[10px] text-vault-400">
+                <p>Thank you for choosing The Grand Horology Vault. For warranty inquiries, please retain this bill.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Account & User Auth Modal -->
+    <div id="auth-modal" class="fixed inset-0 bg-vault-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl border border-vault-200 relative">
+            <button onclick="toggleAuthModal()" class="absolute top-4 right-4 text-vault-400 hover:text-vault-900">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Signed Out View -->
+            <div id="auth-form-container">
+                <div class="text-center mb-6">
+                    <h3 class="font-serif text-2xl font-bold text-vault-900">Vault Customer Access</h3>
+                    <p class="text-xs text-vault-500 mt-1">Access your order history and privileges</p>
+                </div>
+
+                <form id="auth-login-form" onsubmit="handleAuthSubmit(event)" class="space-y-4 text-xs">
+                    <div>
+                        <label class="block text-vault-700 font-medium mb-1">Email Address</label>
+                        <input type="email" id="auth-email" required placeholder="name@example.com" class="w-full border border-vault-200 rounded p-2 focus:border-vault-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-vault-700 font-medium mb-1">Password</label>
+                        <input type="password" id="auth-password" required placeholder="••••••••" class="w-full border border-vault-200 rounded p-2 focus:border-vault-400 focus:outline-none">
+                    </div>
+                    <button type="submit" class="w-full gold-button py-2.5 rounded font-semibold uppercase tracking-wider">
+                        Sign In To Vault
+                    </button>
+                </form>
+
+                <div class="mt-4 text-center text-xs text-vault-500">
+                    <span>Quick Demo Sign-In: </span>
+                    <button onclick="fillDemoUser()" class="text-vault-800 font-semibold underline">Use Demo Account</button>
+                </div>
+            </div>
+
+            <!-- Signed In View -->
+            <div id="user-profile-container" class="hidden">
+                <div class="text-center pb-4 border-b border-vault-200">
+                    <i class="fa-solid fa-circle-user text-4xl text-vault-400 mb-2"></i>
+                    <h3 class="font-serif text-xl font-bold text-vault-900" id="logged-user-email">user@vault.in</h3>
+                    <p class="text-xs text-emerald-700 font-medium mt-0.5"><i class="fa-solid fa-shield-halved"></i> Verified Vault Customer</p>
+                </div>
+
+                <div class="py-4">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-vault-500 mb-3">Recent Order History</h4>
+                    <div id="order-history-list" class="space-y-2 max-h-48 overflow-y-auto text-xs">
+                        <!-- Order history items dynamically rendered -->
+                    </div>
+                </div>
+
+                <button onclick="handleLogout()" class="w-full bg-red-50 text-red-700 hover:bg-red-100 py-2 rounded text-xs font-semibold uppercase">
+                    Sign Out
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Wishlist Drawer -->
+    <div id="wishlist-drawer-overlay" class="fixed inset-0 bg-vault-900/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div id="wishlist-drawer" class="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
+            <div class="p-4 sm:p-6 bg-vault-900 text-white flex items-center justify-between border-b border-vault-800">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-heart text-vault-300 text-lg"></i>
+                    <h3 class="font-serif text-xl font-bold tracking-wide">Your Vault Wishlist</h3>
+                </div>
+                <button onclick="toggleWishlistDrawer()" class="text-vault-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div id="wishlist-items-container" class="flex-grow overflow-y-auto p-4 sm:p-6 space-y-4">
+                <!-- Wishlist items -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Confirmation System -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 bg-vault-900 text-vault-200 border border-vault-400 px-4 py-3 rounded-lg shadow-2xl flex items-center space-x-3 opacity-0 translate-y-4 transition-all duration-300 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-vault-300 text-lg"></i>
+        <span id="toast-message" class="text-xs font-medium">Item added to cart</span>
+    </div>
+
+    <!-- Dismissible Welcome Modal (Once Per Session) -->
+    <div id="welcome-modal" class="fixed inset-0 bg-vault-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-xl max-w-lg w-full p-8 shadow-2xl border border-vault-300 text-center relative">
+            <button onclick="closeWelcomeModal()" class="absolute top-4 right-4 text-vault-400 hover:text-vault-900">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <span class="text-xs tracking-[0.3em] font-semibold text-vault-400 uppercase">Welcome To</span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-vault-900 mt-1 mb-3">
+                THE GRAND HOROLOGY VAULT
+            </h3>
+            <p class="text-xs text-vault-600 leading-relaxed max-w-md mx-auto">
+                Explore our curated vault of authentic Indian and fine horology timepieces. Experience insured express shipping, official brand warranty cards, and bespoke customer assistance.
+            </p>
+            <div class="mt-6 flex justify-center space-x-4">
+                <button onclick="closeWelcomeModal()" class="gold-button px-6 py-2.5 text-xs tracking-widest font-semibold uppercase rounded">
+                    Enter Vault Collection
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-vault-900 text-vault-200 border-t border-vault-800 pt-12 pb-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            
+            <!-- Column 1: Brand Statement -->
+            <div class="space-y-3">
+                <h3 class="font-serif text-xl font-bold text-vault-300 tracking-wider">THE GRAND HOROLOGY VAULT</h3>
+                <p class="text-xs text-vault-400 leading-relaxed font-light">
+                    India's premier destination for curated luxury watches, classic pair sets, and precision enthusiast horology.
+                </p>
+                <div class="flex space-x-3 pt-2 text-vault-400">
+                    <a href="#" class="hover:text-vault-300 text-sm"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-vault-300 text-sm"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-vault-300 text-sm"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-vault-300 text-sm"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Categories -->
+            <div>
+                <h4 class="text-xs font-bold text-vault-300 uppercase tracking-widest mb-3">Vault Categories</h4>
+                <ul class="space-y-2 text-xs text-vault-400">
+                    <li><a href="#" onclick="filterCategory('Couples'); return false;" class="hover:text-white">Couples & Pair Sets</a></li>
+                    <li><a href="#" onclick="filterCategory('Men'); return false;" class="hover:text-white">Gentlemen's Watches</a></li>
+                    <li><a href="#" onclick="filterCategory('Women'); return false;" class="hover:text-white">Women's Collections</a></li>
+                    <li><a href="#" onclick="filterCategory('Children'); return false;" class="hover:text-white">Children's Watches</a></li>
+                    <li><a href="#" onclick="filterCategory('Masters'); return false;" class="hover:text-white text-amber-400 font-semibold">Masters Enthusiast Vault</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Customer Care & Policies -->
+            <div>
+                <h4 class="text-xs font-bold text-vault-300 uppercase tracking-widest mb-3">Customer Service</h4>
+                <ul class="space-y-2 text-xs text-vault-400">
+                    <li><a href="#" onclick="showPolicyModal('Shipping'); return false;" class="hover:text-white">Pan-India Express Shipping</a></li>
+                    <li><a href="#" onclick="showPolicyModal('Returns'); return false;" class="hover:text-white">7-Day Return Policy</a></li>
+                    <li><a href="#" onclick="showPolicyModal('Privacy'); return false;" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" onclick="showPolicyModal('Terms'); return false;" class="hover:text-white">Terms of Vault Service</a></li>
+                    <li><a href="#" onclick="toggleAuthModal(); return false;" class="hover:text-white">Track Order Status</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact & Support -->
+            <div class="space-y-2 text-xs text-vault-400">
+                <h4 class="text-xs font-bold text-vault-300 uppercase tracking-widest mb-3">Vault Concierge</h4>
+                <p><i class="fa-solid fa-envelope mr-2 text-vault-300"></i> care@grandhorologyvault.in</p>
+                <p><i class="fa-solid fa-phone mr-2 text-vault-300"></i> +91 (022) 8000-9000 (Mon-Sat)</p>
+                <p><i class="fa-solid fa-location-dot mr-2 text-vault-300"></i> Fort Chambers, Mumbai, MH - 400001</p>
+                <div class="pt-2 text-[10px] text-vault-500">
+                    Demonstration Store Logos & Brands belong to respective owners.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-vault-800 pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-vault-500">
+            <p>© 2026 The Grand Horology Vault India. All rights reserved.</p>
+            <div class="flex items-center space-x-3 mt-2 sm:mt-0 text-vault-400">
+                <span><i class="fa-brands fa-google-pay text-lg"></i> UPI</span>
+                <span><i class="fa-solid fa-credit-card"></i> Cards</span>
+                <span><i class="fa-solid fa-building-columns"></i> NetBanking</span>
+                <span><i class="fa-solid fa-money-bill-wave"></i> COD</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ==========================================================================
+           1. PRODUCT DATA CATALOG (EXACTLY 25 PRODUCTS: 5 PER CATEGORY)
+           ========================================================================== */
+        const PRODUCTS_DATA = [
+            // CATEGORY 1: COUPLES (PAIR SETS)
+            {
+                id: "cpl-1",
+                category: "Couples",
+                brand: "Titan",
+                name: "Titan Bandhan Pairs Classic Gold Stainless Steel",
+                price: 14995,
+                isPair: true,
+                stock: 8,
+                rating: 4.8,
+                reviews: 42,
+                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop",
+                description: "Complete pair set containing two matching timepieces with champagne gold dials, classic Indices, and durable gold-plated stainless steel straps.",
+                specs: { "In Box": "Set of 2 Watches (His & Hers)", "Movement": "Quartz", "Dial Color": "Champagne Gold", "Warranty": "2 Years Official Titan" }
+            },
+            {
+                id: "cpl-2",
+                category: "Couples",
+                brand: "Fossil",
+                name: "Fossil His & Hers Minimalist Mesh Gift Set",
+                price: 18495,
+                isPair: true,
+                stock: 5,
+                rating: 4.7,
+                reviews: 29,
+                image: "https://images.unsplash.com/photo-1539874754764-5a96559165b0?q=80&w=800&auto=format&fit=crop",
+                description: "An elegant duo featuring dark obsidian dials and sleek silver-tone mesh bracelets packaged in an authentic Fossil presentation tin.",
+                specs: { "In Box": "Set of 2 Watches", "Movement": "Quartz", "Dial Color": "Sunray Black", "Warranty": "2 Years Fossil International" }
+            },
+            {
+                id: "cpl-3",
+                category: "Couples",
+                brand: "Casio",
+                name: "Casio Enticer Pair Silver & Rose Gold Set",
+                price: 11295,
+                isPair: true,
+                stock: 12,
+                rating: 4.6,
+                reviews: 58,
+                image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop",
+                description: "Dual-toned rose gold accents paired with pure stainless steel structure. Ideal anniversary and wedding gift for contemporary couples.",
+                specs: { "In Box": "Set of 2 Watches", "Movement": "Japanese Quartz", "Water Resistance": "50 Meters", "Warranty": "2 Years Casio India" }
+            },
+            {
+                id: "cpl-4",
+                category: "Couples",
+                brand: "Timex",
+                name: "Timex Pair Collection Elegance Leather Set",
+                price: 8995,
+                isPair: true,
+                stock: 15,
+                rating: 4.5,
+                reviews: 19,
+                image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=800&auto=format&fit=crop",
+                description: "Handcrafted rich brown genuine leather straps paired with polished silver cases and Roman numeral markings.",
+                specs: { "In Box": "Set of 2 Watches", "Strap Material": "Genuine Leather", "Movement": "Quartz", "Warranty": "1 Year Timex" }
+            },
+            {
+                id: "cpl-5",
+                category: "Couples",
+                brand: "Citizen",
+                name: "Citizen Eco-Drive Stiletto Luxury Couple Set",
+                price: 42500,
+                isPair: true,
+                stock: 4,
+                rating: 4.9,
+                reviews: 31,
+                image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=800&auto=format&fit=crop",
+                description: "Ultra-slim solar powered timepieces requiring no battery changes. Sapphire crystal glass and surgical steel build.",
+                specs: { "In Box": "Set of 2 Watches", "Technology": "Eco-Drive Solar", "Glass": "Sapphire Crystal", "Warranty": "3 Years Citizen" }
+            },
+
+            // CATEGORY 2: MEN
+            {
+                id: "men-1",
+                category: "Men",
+                brand: "Seiko",
+                name: "Seiko Presage Cocktail Time Automatic",
+                price: 38000,
+                isPair: false,
+                stock: 6,
+                rating: 4.9,
+                reviews: 84,
+                image: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=800&auto=format&fit=crop",
+                description: "Iconic sunray textured deep blue dial inspired by classic cocktails, equipped with Seiko's 4R35 automatic movement and exhibition case back.",
+                specs: { "Movement": "Automatic Caliber 4R35", "Power Reserve": "41 Hours", "Glass": "Box-shaped Hardlex", "Warranty": "2 Years Seiko" }
+            },
+            {
+                id: "men-2",
+                category: "Men",
+                brand: "Casio",
+                name: "Casio G-Shock Full Metal Steel GM-B2100",
+                price: 39995,
+                isPair: false,
+                stock: 9,
+                rating: 4.8,
+                reviews: 112,
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
+                description: "Full stainless steel construction with octagonal bezel, Tough Solar power, and Bluetooth Smartphone Link.",
+                specs: { "Shock Resistance": "Extreme", "Solar": "Tough Solar", "Connectivity": "Bluetooth App Link", "Warranty": "2 Years Casio" }
+            },
+            {
+                id: "men-3",
+                category: "Men",
+                brand: "Titan",
+                name: "Titan Edge Ceramic Ultra-Slim Chronograph",
+                price: 24995,
+                isPair: false,
+                stock: 10,
+                rating: 4.7,
+                reviews: 45,
+                image: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=800&auto=format&fit=crop",
+                description: "Among the world's slimmest ceramic timepieces. High scratch-resistant ceramic case and bracelet with sapphire glass.",
+                specs: { "Case Thickness": "4.4 mm", "Material": "High-Tech Ceramic", "Glass": "Sapphire", "Warranty": "2 Years Titan Edge" }
+            },
+            {
+                id: "men-4",
+                category: "Men",
+                brand: "Tissot",
+                name: "Tissot PRX Powermatic 80 Blue Dial",
+                price: 59500,
+                isPair: false,
+                stock: 3,
+                rating: 5.0,
+                reviews: 98,
+                image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=800&auto=format&fit=crop",
+                description: "1978 design revived with a modern Powermatic 80 caliber featuring an anti-magnetic Nivachron hairspring and integrated steel bracelet.",
+                specs: { "Movement": "Swiss Powermatic 80", "Power Reserve": "80 Hours", "Water Resistance": "100m", "Warranty": "2 Years Swiss Tissot" }
+            },
+            {
+                id: "men-5",
+                category: "Men",
+                brand: "Timex",
+                name: "Timex Marlin Mechanical Hand-Wind",
+                price: 16495,
+                isPair: false,
+                stock: 7,
+                rating: 4.6,
+                reviews: 27,
+                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop",
+                description: "A reissue of the legendary 1960s dress watch featuring a manual hand-winding movement and domed acrylic crystal.",
+                specs: { "Movement": "Mechanical Hand-Wind", "Case Size": "34 mm", "Strap": "Fine Leather", "Warranty": "1 Year Timex" }
+            },
+
+            // CATEGORY 3: WOMEN
+            {
+                id: "wmn-1",
+                category: "Women",
+                brand: "Titan",
+                name: "Titan Raga Viva Rose Gold Diamond Dial",
+                price: 9495,
+                isPair: false,
+                stock: 14,
+                rating: 4.8,
+                reviews: 67,
+                image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=800&auto=format&fit=crop",
+                description: "Delicate rose gold mesh strap adorned with a genuine diamond accent at 12 o'clock and mother-of-pearl undertone dial.",
+                specs: { "Stone": "Genuine Diamond Accent", "Finish": "Rose Gold Plated", "Movement": "Quartz", "Warranty": "2 Years Titan Raga" }
+            },
+            {
+                id: "wmn-2",
+                category: "Women",
+                brand: "Fossil",
+                name: "Fossil Jacqueline Solar Rose Gold Leather",
+                price: 12995,
+                isPair: false,
+                stock: 11,
+                rating: 4.6,
+                reviews: 38,
+                image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop",
+                description: "Solar-powered watch movement housed inside a slim polished case with blush pink eco-leather strap.",
+                specs: { "Power": "Solar Battery", "Strap": "Blush Eco-Leather", "Case Size": "36 mm", "Warranty": "2 Years Fossil" }
+            },
+            {
+                id: "wmn-3",
+                category: "Women",
+                brand: "Citizen",
+                name: "Citizen Eco-Drive Chandler Mother-of-Pearl",
+                price: 22500,
+                isPair: false,
+                stock: 6,
+                rating: 4.9,
+                reviews: 51,
+                image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=800&auto=format&fit=crop",
+                description: "Continuous light-powered watch with an iridescent mother-of-pearl dial face and stainless steel bracelet.",
+                specs: { "Movement": "Eco-Drive E031", "Dial": "Natural Mother of Pearl", "Water Resistance": "50m", "Warranty": "3 Years Citizen" }
+            },
+            {
+                id: "wmn-4",
+                category: "Women",
+                brand: "Seiko",
+                name: "Seiko Lukia Solar Sapphire Crystal",
+                price: 45000,
+                isPair: false,
+                stock: 4,
+                rating: 4.9,
+                reviews: 23,
+                image: "https://images.unsplash.com/photo-1539874754764-5a96559165b0?q=80&w=800&auto=format&fit=crop",
+                description: "Refined Japanese luxury crafted specifically for modern women, featuring solar charging and anti-reflective sapphire glass.",
+                specs: { "Glass": "Sapphire with Super-Clear Coating", "Power": "Solar", "Origin": "Made in Japan", "Warranty": "2 Years Seiko" }
+            },
+            {
+                id: "wmn-5",
+                category: "Women",
+                brand: "Casio",
+                name: "Casio Sheen Swarovski Crystal Chronograph",
+                price: 13995,
+                isPair: false,
+                stock: 8,
+                rating: 4.7,
+                reviews: 40,
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
+                description: "Multifunction date and day sub-dials studded with authentic Swarovski crystals along the bezel border.",
+                specs: { "Crystals": "Genuine Swarovski", "Case": "Stainless Steel", "Movement": "Quartz", "Warranty": "2 Years Casio Sheen" }
+            },
+
+            // CATEGORY 4: CHILDREN
+            {
+                id: "kid-1",
+                category: "Children",
+                brand: "Titan",
+                name: "Zoop by Titan Digital Fun Camo Watch",
+                price: 1195,
+                isPair: false,
+                stock: 20,
+                rating: 4.5,
+                reviews: 89,
+                image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=800&auto=format&fit=crop",
+                description: "Vibrant and shock-resistant digital watch designed for children with alarm, stopwatch, and backlight functions.",
+                specs: { "Water Resistance": "30 Meters", "Strap": "Durable PU Resin", "Features": "Alarm & Backlight", "Warranty": "1 Year Zoop" }
+            },
+            {
+                id: "kid-2",
+                category: "Children",
+                brand: "Casio",
+                name: "Casio Baby-G Youth Tough Digital Pastel",
+                price: 6495,
+                isPair: false,
+                stock: 12,
+                rating: 4.8,
+                reviews: 62,
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
+                description: "Tough shock resistance scaled down for younger wrists, featuring world time, timer, and soft pastel pink resin.",
+                specs: { "Shock Resistance": "Yes", "Water Resistance": "100 Meters", "Display": "Digital LCD", "Warranty": "2 Years Casio" }
+            },
+            {
+                id: "kid-3",
+                category: "Children",
+                brand: "Timex",
+                name: "Timex Youth Digital Shock Resistance",
+                price: 2295,
+                isPair: false,
+                stock: 18,
+                rating: 4.4,
+                reviews: 33,
+                image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop",
+                description: "Rugged outdoors watch with Indiglo night-light and comfortable hypoallergenic silicone strap.",
+                specs: { "Light": "Indiglo Night-Light", "Strap": "Silicone", "Age Group": "6-14 Years", "Warranty": "1 Year Timex" }
+            },
+            {
+                id: "kid-4",
+                category: "Children",
+                brand: "Titan",
+                name: "Fastrack Kids Smart Track Vibrant Edition",
+                price: 1995,
+                isPair: false,
+                stock: 15,
+                rating: 4.6,
+                reviews: 74,
+                image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=800&auto=format&fit=crop",
+                description: "Interactive digital band featuring activity step tracking, fun games, and long 7-day battery life.",
+                specs: { "Battery": "7 Days Rechargeable", "Tracking": "Steps & Active Minutes", "Display": "Color OLED", "Warranty": "1 Year Fastrack" }
+            },
+            {
+                id: "kid-5",
+                category: "Children",
+                brand: "Citizen",
+                name: "Q&Q By Citizen Waterproof Kids Sports Watch",
+                price: 1495,
+                isPair: false,
+                stock: 25,
+                rating: 4.5,
+                reviews: 41,
+                image: "https://images.unsplash.com/photo-1539874754764-5a96559165b0?q=80&w=800&auto=format&fit=crop",
+                description: "Analog watch with clear readable numbers helping kids learn to tell time. 100m water resistance for swimming.",
+                specs: { "Movement": "Japanese Quartz", "Water Resistance": "10 Bar / 100m", "Dial": "Easy-Read Numbers", "Warranty": "1 Year Q&Q" }
+            },
+
+            // CATEGORY 5: MASTERS (PREMIUM COLLECTORS & ENTHUSIASTS)
+            {
+                id: "mst-1",
+                category: "Masters",
+                brand: "Seiko",
+                name: "Seiko Luxe Prospex Speedtimer Solar Chronograph",
+                price: 68000,
+                isPair: false,
+                stock: 3,
+                rating: 5.0,
+                reviews: 37,
+                image: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=800&auto=format&fit=crop",
+                description: "Precision chronograph inspired by Seiko's 1969 pioneering timing instruments. Powered by solar energy with 1/5th second stopwatch.",
+                specs: { "Caliber": "Solar V192", "Accuracy": "±15 seconds/month", "Glass": "Curved Sapphire Crystal", "Warranty": "2 Years Official Seiko" }
+            },
+            {
+                id: "mst-2",
+                category: "Masters",
+                brand: "Tissot",
+                name: "Tissot Heritage 1938 Chronometer COSC",
+                price: 78500,
+                isPair: false,
+                stock: 2,
+                rating: 5.0,
+                reviews: 19,
+                image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=800&auto=format&fit=crop",
+                description: "COSC certified chronometer ensuring exceptional Swiss precision. Vintage sector dial layout and heat-blued hands.",
+                specs: { "Certification": "COSC Chronometer", "Movement": "ETA 2824-2", "Glass": "Anti-Reflective Sapphire", "Warranty": "3 Years Tissot" }
+            },
+            {
+                id: "mst-3",
+                category: "Masters",
+                brand: "Citizen",
+                name: "Citizen Series 8 Automatic GMT Limited Edition",
+                price: 115000,
+                isPair: false,
+                stock: 2,
+                rating: 4.9,
+                reviews: 14,
+                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop",
+                description: "High-grade anti-magnetic automatic GMT movement boasting 28,800 vibrations/hour and dual-tone bi-directional rotating bezel.",
+                specs: { "Caliber": "Automatic 9054 GMT", "Magnetic Resistance": "16,000 A/m", "Glass": "Sapphire", "Warranty": "3 Years Citizen" }
+            },
+            {
+                id: "mst-4",
+                category: "Masters",
+                brand: "Longines",
+                name: "Longines Master Collection Moonphase Automatic",
+                price: 215000,
+                isPair: false,
+                stock: 1,
+                rating: 5.0,
+                reviews: 28,
+                image: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=800&auto=format&fit=crop",
+                description: "Horological masterpiece featuring a real moonphase display at 6 o'clock, barleycorn textured dial, and blued steel hands.",
+                specs: { "Movement": "Caliber L899 Mechanical", "Complications": "Moonphase & Date", "Power Reserve": "72 Hours", "Warranty": "5 Years Longines International" }
+            },
+            {
+                id: "mst-5",
+                category: "Masters",
+                brand: "Tissot",
+                name: "Frederique Constant Highlife Automatic COSC",
+                price: 185000,
+                isPair: false,
+                stock: 2,
+                rating: 4.9,
+                reviews: 16,
+                image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop",
+                description: "Swiss Luxury sports watch with integrated interchangeable steel bracelet and supple additional rubber strap included.",
+                specs: { "Certification": "COSC Certified", "Straps Included": "2 (Steel & Rubber)", "Glass": "Convex Sapphire", "Warranty": "3 Years" }
+            }
+        ];
+
+        /* ==========================================================================
+           2. GLOBAL STATE MANAGEMENT
+           ========================================================================== */
+        let state = {
+            currentCategory: "All",
+            searchQuery: "",
+            brandFilter: "All",
+            priceFilter: "All",
+            sortOption: "featured",
+            cart: JSON.parse(localStorage.getItem('vault_cart')) || [],
+            wishlist: JSON.parse(localStorage.getItem('vault_wishlist')) || [],
+            coupon: null,
+            user: JSON.parse(localStorage.getItem('vault_user')) || null,
+            orders: JSON.parse(localStorage.getItem('vault_orders')) || []
+        };
+
+        /* Carousel State */
+        let currentSlide = 0;
+        let slideInterval = null;
+
+        /* Format Currency as INR */
+        function formatINR(amount) {
+            return new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                maximumFractionDigits: 2
+            }).format(amount);
+        }
+
+        /* ==========================================================================
+           3. APPLICATION INITIALIZATION
+           ========================================================================== */
+        window.onload = function() {
+            renderCatalog();
+            initCarousel();
+            updateCartBadge();
+            updateWishlistBadge();
+            checkUserAuthUI();
+            checkWelcomeModal();
+
+            // Event Listeners for Search Inputs
+            document.getElementById('search-input').addEventListener('input', (e) => {
+                state.searchQuery = e.target.value.toLowerCase().trim();
+                document.getElementById('clear-search-btn').classList.toggle('hidden', state.searchQuery === '');
+                renderCatalog();
+            });
+
+            document.getElementById('mobile-search-input').addEventListener('input', (e) => {
+                state.searchQuery = e.target.value.toLowerCase().trim();
+                renderCatalog();
+            });
+        };
+
+        /* ==========================================================================
+           4. HERO CAROUSEL CONTROLLER
+           ========================================================================== */
+        function initCarousel() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.remove('opacity-0');
+                        slide.classList.add('opacity-100');
+                    } else {
+                        slide.classList.remove('opacity-100');
+                        slide.classList.add('opacity-0');
+                    }
+                });
+
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.remove('bg-white/40', 'w-2.5');
+                        dot.classList.add('bg-vault-300', 'w-8');
+                    } else {
+                        dot.classList.remove('bg-vault-300', 'w-8');
+                        dot.classList.add('bg-white/40', 'w-2.5');
+                    }
+                });
+
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                let next = (currentSlide + 1) % slides.length;
+                showSlide(next);
+            }
+
+            function prevSlide() {
+                let prev = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(prev);
+            }
+
+            // Start 10 second auto advance timer
+            slideInterval = setInterval(nextSlide, 10000);
+
+            // Controls
+            document.getElementById('next-slide-btn').onclick = () => {
+                clearInterval(slideInterval);
+                nextSlide();
+                slideInterval = setInterval(nextSlide, 10000);
+            };
+
+            document.getElementById('prev-slide-btn').onclick = () => {
+                clearInterval(slideInterval);
+                prevSlide();
+                slideInterval = setInterval(nextSlide, 10000);
+            };
+
+            dots.forEach(dot => {
+                dot.onclick = (e) => {
+                    clearInterval(slideInterval);
+                    const slideTo = parseInt(e.target.dataset.slideTo);
+                    showSlide(slideTo);
+                    slideInterval = setInterval(nextSlide, 10000);
+                };
+            });
+
+            // Pause on hover
+            const carouselElem = document.querySelector('section[aria-label="Featured Collections Carousel"]');
+            carouselElem.onmouseenter = () => clearInterval(slideInterval);
+            carouselElem.onmouseleave = () => {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 10000);
+            };
+        }
+
+        /* ==========================================================================
+           5. CATALOG & FILTERING ENGINE
+           ========================================================================== */
+        function filterCategory(cat) {
+            state.currentCategory = cat;
+            
+            // Update Navigation Active State
+            document.querySelectorAll('.nav-cat-btn').forEach(btn => {
+                if (btn.dataset.category === cat) {
+                    btn.classList.add('text-vault-400', 'border-vault-400');
+                    btn.classList.remove('border-transparent');
+                } else {
+                    btn.classList.remove('text-vault-400', 'border-vault-400');
+                    btn.classList.add('border-transparent');
+                }
+            });
+
+            // Update Title Header
+            const titleElem = document.getElementById('current-category-title');
+            const descElem = document.getElementById('category-description');
+
+            if (cat === 'All') {
+                titleElem.textContent = 'All Vault Timepieces';
+                descElem.textContent = 'Showing 25 authentic timepieces from renowned Indian and international horology houses.';
+            } else if (cat === 'Couples') {
+                titleElem.textContent = 'Couples & Pair Sets';
+                descElem.textContent = 'Curated matching watch pairs for weddings, anniversaries, and milestones. Prices listed are for the complete pair set.';
+            } else if (cat === 'Masters') {
+                titleElem.textContent = 'Masters Collector Vault';
+                descElem.textContent = 'High-grade automatics, GMTs, chronometers, and moonphase complications for horological enthusiasts.';
+            } else {
+                titleElem.textContent = `${cat}'s Collection`;
+                descElem.textContent = `Explore our refined selection of authentic ${cat.toLowerCase()}'s timepieces.`;
+            }
+
+            renderCatalog();
+        }
+
+        function applyFilters() {
+            state.brandFilter = document.getElementById('brand-filter').value;
+            state.priceFilter = document.getElementById('price-filter').value;
+            state.sortOption = document.getElementById('sort-select').value;
+            renderCatalog();
+        }
+
+        function resetFilters() {
+            state.currentCategory = "All";
+            state.searchQuery = "";
+            state.brandFilter = "All";
+            state.priceFilter = "All";
+            state.sortOption = "featured";
+
+            document.getElementById('search-input').value = "";
+            document.getElementById('mobile-search-input').value = "";
+            document.getElementById('brand-filter').value = "All";
+            document.getElementById('price-filter').value = "All";
+            document.getElementById('sort-select').value = "featured";
+            document.getElementById('clear-search-btn').classList.add('hidden');
+
+            filterCategory('All');
+        }
+
+        function clearSearch() {
+            document.getElementById('search-input').value = "";
+            state.searchQuery = "";
+            document.getElementById('clear-search-btn').classList.add('hidden');
+            renderCatalog();
+        }
+
+        function resetCatalogView() {
+            resetFilters();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderCatalog() {
+            const grid = document.getElementById('product-grid');
+            const emptyState = document.getElementById('empty-state');
+
+            // 1. Filter logic
+            let filtered = PRODUCTS_DATA.filter(product => {
+                // Category match
+                if (state.currentCategory !== 'All' && product.category !== state.currentCategory) {
+                    return false;
+                }
+                // Brand match
+                if (state.brandFilter !== 'All' && product.brand !== state.brandFilter) {
+                    return false;
+                }
+                // Search match
+                if (state.searchQuery !== '') {
+                    const matchName = product.name.toLowerCase().includes(state.searchQuery);
+                    const matchBrand = product.brand.toLowerCase().includes(state.searchQuery);
+                    const matchCat = product.category.toLowerCase().includes(state.searchQuery);
+                    if (!matchName && !matchBrand && !matchCat) return false;
+                }
+                // Price match
+                if (state.priceFilter === 'under5k' && product.price >= 5000) return false;
+                if (state.priceFilter === '5k-20k' && (product.price < 5000 || product.price > 20000)) return false;
+                if (state.priceFilter === '20k-50k' && (product.price < 20000 || product.price > 50000)) return false;
+                if (state.priceFilter === 'above50k' && product.price <= 50000) return false;
+
+                return true;
+            });
+
+            // 2. Sort logic
+            if (state.sortOption === 'price-low') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (state.sortOption === 'price-high') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (state.sortOption === 'name-asc') {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            }
+
+            // 3. Render grid
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            grid.innerHTML = filtered.map(product => {
+                const isWishlisted = state.wishlist.some(item => item.id === product.id);
+
+                return `
+                <div class="group bg-white rounded-xl border border-vault-200/80 hover:border-vault-400 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative">
+                    
+                    <!-- Image Area & Badges -->
+                    <div class="relative bg-vault-50/50 aspect-square overflow-hidden cursor-pointer" onclick="openQuickView('${product.id}')">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                        
+                        ${product.isPair ? `
+                            <span class="absolute top-3 left-3 bg-vault-900 text-vault-300 text-[10px] uppercase tracking-wider font-bold px-2 py-1 rounded shadow">
+                                <i class="fa-solid fa-heart-pulse mr-1 text-amber-400"></i> Pair Set (2 Watches)
+                            </span>
+                        ` : ''}
+
+                        ${product.category === 'Masters' ? `
+                            <span class="absolute top-3 left-3 bg-amber-900 text-amber-200 text-[10px] uppercase tracking-wider font-bold px-2 py-1 rounded shadow border border-amber-600/40">
+                                <i class="fa-solid fa-crown mr-1"></i> Masters Vault
+                            </span>
+                        ` : ''}
+
+                        <!-- Wishlist Floating Icon -->
+                        <button onclick="event.stopPropagation(); toggleWishlistItem('${product.id}')" 
+                            class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-vault-800 flex items-center justify-center shadow transition-transform active:scale-90">
+                            <i class="${isWishlisted ? 'fa-solid text-red-500' : 'fa-regular'} fa-heart text-sm"></i>
+                        </button>
+                    </div>
+
+                    <!-- Details Area -->
+                    <div class="p-4 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-[11px] text-vault-500 font-semibold uppercase tracking-wider mb-1">
+                                <span>${product.brand}</span>
+                                <span class="text-amber-600 flex items-center"><i class="fa-solid fa-star text-[10px] mr-1"></i>${product.rating}</span>
+                            </div>
+                            <h3 onclick="openQuickView('${product.id}')" class="font-serif text-base font-bold text-vault-900 line-clamp-2 hover:text-vault-400 cursor-pointer transition-colors leading-snug">
+                                ${product.name}
+                            </h3>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-t border-vault-100 flex items-baseline justify-between">
+                            <div>
+                                <span class="text-xs text-vault-400 block text-[10px] uppercase">Price (Incl. GST)</span>
+                                <span class="font-serif text-lg font-bold text-vault-900">${formatINR(product.price)}</span>
+                            </div>
+                            <span class="text-[10px] ${product.stock < 5 ? 'text-amber-700 bg-amber-50' : 'text-emerald-700 bg-emerald-50'} px-2 py-0.5 rounded font-medium">
+                                ${product.stock < 5 ? `Only ${product.stock} Left` : 'In Vault Stock'}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons Bar -->
+                    <div class="p-4 pt-0 grid grid-cols-2 gap-2">
+                        <button onclick="addToCart('${product.id}')" class="w-full bg-vault-100 hover:bg-vault-200 text-vault-900 text-xs py-2 rounded font-semibold transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-cart-plus mr-1.5 text-xs"></i> Add
+                        </button>
+                        <button onclick="buyNow('${product.id}')" class="w-full gold-button text-xs py-2 rounded font-semibold transition-colors flex items-center justify-center">
+                            Buy Now
+                        </button>
+                    </div>
+
+                </div>
+                `;
+            }).join('');
+        }
+
+        /* ==========================================================================
+           6. QUICK VIEW & WISHLIST SYSTEM
+           ========================================================================== */
+        function openQuickView(productId) {
+            const product = PRODUCTS_DATA.find(p => p.id === productId);
+            if (!product) return;
+
+            const modal = document.getElementById('quickview-modal');
+            const content = document.getElementById('quickview-content');
+
+            content.innerHTML = `
+                <div class="aspect-square bg-vault-50 rounded-lg overflow-hidden border border-vault-200">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-vault-400 uppercase tracking-widest">${product.brand} • ${product.category}</span>
+                        <h2 class="font-serif text-2xl font-bold text-vault-900 mt-1 mb-2">${product.name}</h2>
+                        
+                        <div class="flex items-center space-x-3 mb-4 text-xs">
+                            <span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded"><i class="fa-solid fa-star mr-1"></i>${product.rating}</span>
+                            <span class="text-vault-500">${product.reviews} Verified Customer Reviews</span>
+                        </div>
+
+                        <p class="text-xs text-vault-600 leading-relaxed mb-4">${product.description}</p>
+
+                        <!-- Specifications Table -->
+                        <div class="bg-vault-50 p-3 rounded-lg border border-vault-200 text-xs space-y-1 mb-6">
+                            <h4 class="font-bold text-vault-900 mb-2 uppercase text-[10px] tracking-wider">Vault Specifications</h4>
+                            ${Object.entries(product.specs).map(([k, v]) => `
+                                <div class="flex justify-between border-b border-vault-200/60 pb-1">
+                                    <span class="text-vault-500">${k}:</span>
+                                    <span class="font-semibold text-vault-800">${v}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="mb-4 flex items-baseline justify-between">
+                            <span class="font-serif text-2xl font-bold text-vault-900">${formatINR(product.price)}</span>
+                            <span class="text-xs text-emerald-700 font-medium">Free Express Delivery</span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <button onclick="addToCart('${product.id}'); closeQuickView()" class="w-full bg-vault-100 hover:bg-vault-200 text-vault-900 text-xs py-3 rounded font-semibold uppercase tracking-wider">
+                                Add To Cart
+                            </button>
+                            <button onclick="buyNow('${product.id}'); closeQuickView()" class="w-full gold-button text-xs py-3 rounded font-semibold uppercase tracking-wider">
+                                Direct Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickview-modal').classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function toggleWishlistItem(id) {
+            const index = state.wishlist.findIndex(item => item.id === id);
+            const product = PRODUCTS_DATA.find(p => p.id === id);
+
+            if (index > -1) {
+                state.wishlist.splice(index, 1);
+                showToast(`Removed ${product.name.substring(0, 20)}... from Wishlist`);
+            } else {
+                state.wishlist.push(product);
+                showToast(`Saved ${product.name.substring(0, 20)}... to Wishlist`);
+            }
+
+            localStorage.setItem('vault_wishlist', JSON.stringify(state.wishlist));
+            updateWishlistBadge();
+            renderCatalog();
+            renderWishlistDrawer();
+        }
+
+        function updateWishlistBadge() {
+            document.getElementById('wishlist-count-badge').textContent = state.wishlist.length;
+        }
+
+        function toggleWishlistDrawer() {
+            const overlay = document.getElementById('wishlist-drawer-overlay');
+            const drawer = document.getElementById('wishlist-drawer');
+            const isHidden = overlay.classList.contains('pointer-events-none');
+
+            if (isHidden) {
+                renderWishlistDrawer();
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                drawer.classList.remove('translate-x-full');
+            } else {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        function renderWishlistDrawer() {
+            const container = document.getElementById('wishlist-items-container');
+            if (state.wishlist.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-vault-400">
+                        <i class="fa-regular fa-heart text-4xl mb-3"></i>
+                        <p class="text-xs">Your wishlist is currently empty.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = state.wishlist.map(item => `
+                <div class="flex items-center space-x-4 border-b border-vault-100 pb-3">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded border border-vault-200">
+                    <div class="flex-grow">
+                        <h4 class="font-serif text-sm font-bold text-vault-900 line-clamp-1">${item.name}</h4>
+                        <p class="text-xs font-bold text-vault-800">${formatINR(item.price)}</p>
+                        <button onclick="addToCart('${item.id}')" class="text-[11px] text-vault-400 font-semibold hover:underline mt-1">Move to Cart</button>
+                    </div>
+                    <button onclick="toggleWishlistItem('${item.id}')" class="text-vault-400 hover:text-red-500">
+                        <i class="fa-solid fa-trash-can text-sm"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        /* ==========================================================================
+           7. CART & CALCULATOR CONTROLLER
+           ========================================================================== */
+        function addToCart(id) {
+            const existing = state.cart.find(item => item.id === id);
+            const product = PRODUCTS_DATA.find(p => p.id === id);
+
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                state.cart.push({ ...product, qty: 1 });
+            }
+
+            saveCartState();
+            showToast(`Added ${product.brand} timepiece to Cart`);
+        }
+
+        function buyNow(id) {
+            const existing = state.cart.find(item => item.id === id);
+            const product = PRODUCTS_DATA.find(p => p.id === id);
+
+            if (!existing) {
+                state.cart.push({ ...product, qty: 1 });
+                saveCartState();
+            }
+
+            openCheckoutModal();
+        }
+
+        function updateCartQty(id, delta) {
+            const item = state.cart.find(i => i.id === id);
+            if (!item) return;
+
+            item.qty += delta;
+            if (item.qty <= 0) {
+                state.cart = state.cart.filter(i => i.id !== id);
+            }
+
+            saveCartState();
+        }
+
+        function removeCartItem(id) {
+            state.cart = state.cart.filter(i => i.id !== id);
+            saveCartState();
+        }
+
+        function saveCartState() {
+            localStorage.setItem('vault_cart', JSON.stringify(state.cart));
+            updateCartBadge();
+            renderCartDrawer();
+        }
+
+        function updateCartBadge() {
+            const totalQty = state.cart.reduce((sum, i) => sum + i.qty, 0);
+            document.getElementById('cart-count-badge').textContent = totalQty;
+        }
+
+        function toggleCartDrawer() {
+            const overlay = document.getElementById('cart-drawer-overlay');
+            const drawer = document.getElementById('cart-drawer');
+            const isHidden = overlay.classList.contains('pointer-events-none');
+
+            if (isHidden) {
+                renderCartDrawer();
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                drawer.classList.remove('translate-x-full');
+            } else {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        function calculateCartTotals() {
+            const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const shipping = subtotal > 5000 || subtotal === 0 ? 0 : 250; // Demo shipping rule
+            const discount = state.coupon ? (subtotal * state.coupon.discount) : 0;
+            const total = Math.max(0, subtotal - discount + shipping);
+            const taxAmount = subtotal * 0.18; // 18% GST calculation display
+
+            return { subtotal, shipping, discount, total, taxAmount };
+        }
+
+        function renderCartDrawer() {
+            const container = document.getElementById('cart-items-container');
+            const { subtotal, shipping, discount, total } = calculateCartTotals();
+
+            if (state.cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16 text-vault-400">
+                        <i class="fa-solid fa-bag-shopping text-5xl mb-4"></i>
+                        <h4 class="font-serif text-lg font-bold text-vault-900">Your Cart is Empty</h4>
+                        <p class="text-xs text-vault-500 mt-1">Discover luxury timepieces in our Vault catalog.</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = state.cart.map(item => `
+                    <div class="flex items-center space-x-4 border-b border-vault-100 pb-4">
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded border border-vault-200">
+                        <div class="flex-grow">
+                            <span class="text-[10px] font-bold text-vault-400 uppercase tracking-wider">${item.brand}</span>
+                            <h4 class="font-serif text-sm font-bold text-vault-900 line-clamp-1">${item.name}</h4>
+                            <p class="text-xs font-bold text-vault-900 mt-0.5">${formatINR(item.price)}</p>
+                            
+                            <div class="flex items-center space-x-2 mt-2">
+                                <button onclick="updateCartQty('${item.id}', -1)" class="w-5 h-5 rounded bg-vault-100 hover:bg-vault-200 text-xs font-bold flex items-center justify-center">-</button>
+                                <span class="text-xs font-semibold px-2">${item.qty}</span>
+                                <button onclick="updateCartQty('${item.id}', 1)" class="w-5 h-5 rounded bg-vault-100 hover:bg-vault-200 text-xs font-bold flex items-center justify-center">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeCartItem('${item.id}')" class="text-vault-400 hover:text-red-500 p-1">
+                            <i class="fa-solid fa-xmark text-sm"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            document.getElementById('cart-subtotal-text').textContent = formatINR(subtotal);
+            document.getElementById('cart-shipping-text').textContent = shipping === 0 ? 'FREE' : formatINR(shipping);
+            document.getElementById('cart-total-text').textContent = formatINR(total);
+
+            const discountRow = document.getElementById('coupon-discount-row');
+            if (state.coupon) {
+                discountRow.classList.remove('hidden');
+                document.getElementById('cart-discount-text').textContent = `-${formatINR(discount)}`;
+            } else {
+                discountRow.classList.add('hidden');
+            }
+        }
+
+        function applyCouponCode() {
+            const code = document.getElementById('coupon-code-input').value.trim().toUpperCase();
+            const msg = document.getElementById('coupon-message');
+
+            if (code === 'VAULT10') {
+                state.coupon = { code: 'VAULT10', discount: 0.10 };
+                msg.textContent = '10% Privilege Discount Applied!';
+                msg.className = 'text-[11px] mb-3 text-emerald-700 font-semibold block';
+                renderCartDrawer();
+            } else {
+                msg.textContent = 'Invalid Coupon Code. Try "VAULT10"';
+                msg.className = 'text-[11px] mb-3 text-red-600 font-semibold block';
+            }
+        }
+
+        /* ==========================================================================
+           8. CHECKOUT & PAYMENT SANDBOX PIPELINE
+           ========================================================================== */
+        function openCheckoutModal() {
+            if (state.cart.length === 0) {
+                showToast("Please add items to cart before checkout");
+                return;
+            }
+
+            // Pre-fill user details if logged in
+            if (state.user) {
+                document.getElementById('cust-email').value = state.user.email;
+            }
+
+            renderCheckoutSummary();
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+
+            // Close cart drawer if open
+            const drawerOverlay = document.getElementById('cart-drawer-overlay');
+            if (!drawerOverlay.classList.contains('pointer-events-none')) {
+                toggleCartDrawer();
+            }
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function renderCheckoutSummary() {
+            const miniList = document.getElementById('checkout-mini-list');
+            const { subtotal, shipping, discount, total, taxAmount } = calculateCartTotals();
+
+            miniList.innerHTML = state.cart.map(item => `
+                <div class="flex justify-between items-center text-xs border-b border-vault-200/60 pb-1.5">
+                    <div class="truncate max-w-[180px]">
+                        <span class="font-semibold text-vault-900 block truncate">${item.name}</span>
+                        <span class="text-[10px] text-vault-500">Qty: ${item.qty} × ${formatINR(item.price)}</span>
+                    </div>
+                    <span class="font-bold text-vault-900">${formatINR(item.price * item.qty)}</span>
+                </div>
+            `).join('');
+
+            document.getElementById('summary-subtotal').textContent = formatINR(subtotal);
+            document.getElementById('summary-tax').textContent = formatINR(taxAmount);
+            document.getElementById('summary-shipping').textContent = shipping === 0 ? 'FREE' : formatINR(shipping);
+            document.getElementById('summary-total').textContent = formatINR(total);
+
+            const discountRow = document.getElementById('summary-discount-row');
+            if (state.coupon) {
+                discountRow.classList.remove('hidden');
+                document.getElementById('summary-discount').textContent = `-${formatINR(discount)}`;
+            } else {
+                discountRow.classList.add('hidden');
+            }
+        }
+
+        function processOrderCheckout() {
+            const name = document.getElementById('cust-name').value.trim();
+            const email = document.getElementById('cust-email').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+            const city = document.getElementById('cust-city').value.trim();
+            const stateVal = document.getElementById('cust-state').value;
+            const pincode = document.getElementById('cust-pincode').value.trim();
+
+            if (!name || !email || !phone || !address || !city || !pincode) {
+                showToast("Please fill all required delivery address fields");
+                return;
+            }
+
+            if (pincode.length !== 6 || isNaN(pincode)) {
+                showToast("Please enter a valid 6-digit Indian PIN Code");
+                return;
+            }
+
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+            const { subtotal, shipping, discount, total, taxAmount } = calculateCartTotals();
+
+            // Generate Order Payload
+            const orderId = `GHV-2026-${Math.floor(10000 + Math.random() * 90000)}`;
+            const orderDate = new Date().toLocaleDateString('en-IN', {
+                year: 'numeric', month: 'short', day: 'numeric'
+            });
+
+            const newOrder = {
+                id: orderId,
+                date: orderDate,
+                customer: { name, email, phone, address: `${address}, ${city}, ${stateVal} - ${pincode}` },
+                items: [...state.cart],
+                totals: { subtotal, taxAmount, shipping, discount, total },
+                paymentMethod,
+                paymentStatus: paymentMethod === 'COD' ? 'CASH ON DELIVERY (PENDING)' : 'PAID - ONLINE GATEWAY'
+            };
+
+            // Save Order to history
+            state.orders.unshift(newOrder);
+            localStorage.setItem('vault_orders', JSON.stringify(state.orders));
+
+            // Show Printable Invoice
+            closeCheckoutModal();
+            displayPrintableInvoice(newOrder);
+
+            // Reset Cart
+            state.cart = [];
+            state.coupon = null;
+            saveCartState();
+        }
+
+        /* ==========================================================================
+           9. PRINTABLE INVOICE GENERATOR
+           ========================================================================== */
+        function displayPrintableInvoice(order) {
+            document.getElementById('inv-number').textContent = order.id;
+            document.getElementById('inv-date').textContent = `Date: ${order.date}`;
+            document.getElementById('inv-cust-name').textContent = order.customer.name;
+            document.getElementById('inv-cust-address').textContent = order.customer.address;
+            document.getElementById('inv-cust-phone').textContent = `Mobile: +91 ${order.customer.phone}`;
+            document.getElementById('inv-cust-email').textContent = `Email: ${order.customer.email}`;
+
+            const payBadge = document.getElementById('inv-pay-badge');
+            payBadge.textContent = `${order.paymentStatus} (${order.paymentMethod})`;
+            payBadge.className = order.paymentMethod === 'COD' ? 
+                'inline-block px-2.5 py-1 rounded text-xs font-bold bg-amber-100 text-amber-800' :
+                'inline-block px-2.5 py-1 rounded text-xs font-bold bg-emerald-100 text-emerald-800';
+
+            const itemsBody = document.getElementById('inv-items-body');
+            itemsBody.innerHTML = order.items.map(item => `
+                <tr>
+                    <td class="py-2.5">
+                        <span class="font-bold text-vault-900 block">${item.name}</span>
+                        <span class="text-[10px] text-vault-500">Brand: ${item.brand} | Category: ${item.category}</span>
+                    </td>
+                    <td class="py-2.5 text-center font-semibold">${item.qty}</td>
+                    <td class="py-2.5 text-right font-semibold">${formatINR(item.price)}</td>
+                    <td class="py-2.5 text-right font-bold text-vault-900">${formatINR(item.price * item.qty)}</td>
+                </tr>
+            `).join('');
+
+            document.getElementById('inv-subtotal').textContent = formatINR(order.totals.subtotal);
+            document.getElementById('inv-tax').textContent = formatINR(order.totals.taxAmount);
+            document.getElementById('inv-grand-total').textContent = formatINR(order.totals.total);
+
+            const discountRow = document.getElementById('inv-discount-row');
+            if (order.totals.discount > 0) {
+                discountRow.classList.remove('hidden');
+                document.getElementById('inv-discount').textContent = `-${formatINR(order.totals.discount)}`;
+            } else {
+                discountRow.classList.add('hidden');
+            }
+
+            const modal = document.getElementById('printable-invoice-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeInvoiceModal() {
+            document.getElementById('printable-invoice-modal').classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        /* ==========================================================================
+           10. USER AUTHENTICATION & ORDER HISTORY
+           ========================================================================== */
+        function toggleAuthModal() {
+            const modal = document.getElementById('auth-modal');
+            const isHidden = modal.classList.contains('pointer-events-none');
+
+            if (isHidden) {
+                checkUserAuthUI();
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('auth-email').value.trim();
+            
+            state.user = { email, signedInAt: new Date().toISOString() };
+            localStorage.setItem('vault_user', JSON.stringify(state.user));
+
+            showToast("Successfully signed into Grand Horology Vault");
+            checkUserAuthUI();
+        }
+
+        function fillDemoUser() {
+            document.getElementById('auth-email').value = "collector@vault.in";
+            document.getElementById('auth-password').value = "demo1234";
+        }
+
+        function handleLogout() {
+            state.user = null;
+            localStorage.removeItem('vault_user');
+            showToast("Signed out of your account");
+            checkUserAuthUI();
+        }
+
+        function checkUserAuthUI() {
+            const formContainer = document.getElementById('auth-form-container');
+            const profileContainer = document.getElementById('user-profile-container');
+            const dot = document.getElementById('user-status-dot');
+
+            if (state.user) {
+                formContainer.classList.add('hidden');
+                profileContainer.classList.remove('hidden');
+                document.getElementById('logged-user-email').textContent = state.user.email;
+                dot.classList.remove('hidden');
+                renderOrderHistory();
+            } else {
+                formContainer.classList.remove('hidden');
+                profileContainer.classList.add('hidden');
+                dot.classList.add('hidden');
+            }
+        }
+
+        function renderOrderHistory() {
+            const container = document.getElementById('order-history-list');
+            if (state.orders.length === 0) {
+                container.innerHTML = `<p class="text-vault-400 text-center py-4">No past orders found in your vault account.</p>`;
+                return;
+            }
+
+            container.innerHTML = state.orders.map(ord => `
+                <div class="border border-vault-200 rounded p-2.5 bg-vault-50 hover:bg-white transition-colors cursor-pointer" onclick="displayPrintableInvoiceByObj('${ord.id}')">
+                    <div class="flex justify-between font-bold text-vault-900">
+                        <span>${ord.id}</span>
+                        <span>${formatINR(ord.totals.total)}</span>
+                    </div>
+                    <div class="flex justify-between text-[10px] text-vault-500 mt-1">
+                        <span>${ord.date} • ${ord.items.length} Item(s)</span>
+                        <span class="text-emerald-700 font-semibold">${ord.paymentStatus}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function displayPrintableInvoiceByObj(orderId) {
+            const order = state.orders.find(o => o.id === orderId);
+            if (order) {
+                toggleAuthModal();
+                displayPrintableInvoice(order);
+            }
+        }
+
+        /* ==========================================================================
+           11. HELPERS & MODALS
+           ========================================================================== */
+        function showToast(msg) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = msg;
+
+            toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            }, 3000);
+        }
+
+        function checkWelcomeModal() {
+            const seen = sessionStorage.getItem('vault_welcome_seen');
+            if (!seen) {
+                setTimeout(() => {
+                    document.getElementById('welcome-modal').classList.remove('opacity-0', 'pointer-events-none');
+                }, 1000);
+            }
+        }
+
+        function closeWelcomeModal() {
+            sessionStorage.setItem('vault_welcome_seen', 'true');
+            document.getElementById('welcome-modal').classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        document.getElementById('mobile-menu-btn').onclick = toggleMobileMenu;
+
+        function showPolicyModal(type) {
+            let msg = "";
+            if (type === 'Shipping') {
+                msg = "The Grand Horology Vault provides insured express shipping across all 28 states and Union Territories in India. Typical delivery timeframes range from 3 to 5 business days.";
+            } else if (type === 'Returns') {
+                msg = "We offer a 7-day white-glove return policy for unworn timepieces in original box condition with intact warranty tags.";
+            } else if (type === 'Privacy') {
+                msg = "Customer information is stored with bank-grade encryption. We never share or monetize your private contact or ordering history.";
+            } else {
+                msg = "The Grand Horology Vault operates under standard Indian e-commerce laws. All prices displayed include GST.";
+            }
+            alert(`[VAULT POLICY - ${type.toUpperCase()}]\n\n${msg}`);
+        }
+    </script>
+</body>
+</html>
